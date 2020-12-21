@@ -3,10 +3,10 @@ export class Palas extends Phaser.GameObjects.Sprite{
         super(scene, x, y, type);
 
         scene.add.existing(this);
-
         scene.physics.world.enable(this);
-
         this.body.immovable = true;
+
+        this.body.setCollideWorldBounds(true);
     }
 }
 
