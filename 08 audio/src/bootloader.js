@@ -10,6 +10,9 @@ class Bootloader extends Phaser.Scene{
     }
 
     create(){
+
+        this.sound.pauseOnBlur = false; //Mantien siempre la música
+
         const audio = this.sound.add('prueba',{
             loop: false
         });
@@ -19,6 +22,16 @@ class Bootloader extends Phaser.Scene{
         });
         this.input.keyboard.on('keydown-LEFT', () =>{
             audio.stop();
+        });
+        this.input.keyboard.on('keydown-UP', () =>{
+            //audio.pause();
+            //audio.rate += 0.1;
+            audio.detune += 100;
+        });
+        this.input.keyboard.on('keydown-DOWN', () =>{
+            //audio.resume();
+            //audio.rate += 1;
+            audio.detune += 1;
         });
     }
 }
